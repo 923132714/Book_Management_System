@@ -1,11 +1,13 @@
 /**
 	 * 可序列化图书 bean类
 	 * 包含图书信息：
-	 * 图书编号
-	 * 图书名称
-	 * 图书价格
-	 * 图书数量
-	 * 图书价格
+	 * 图书编号 @param bookId
+	 * 图书名称 @param  bookName
+	 * 图书价格 @param bookPrice
+	 * 图书数量 @param bookAmount
+	 * 图书价格 @param bookBrief
+	 * 
+	 * @author logic
 	 */
 package com.bean;
 

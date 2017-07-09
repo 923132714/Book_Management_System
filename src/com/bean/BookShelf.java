@@ -3,9 +3,6 @@ package com.bean;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-import org.omg.CORBA.PRIVATE_MEMBER;
-
-import com.util.Book;
 
 /**
  * @author logic
@@ -45,9 +42,10 @@ public class BookShelf {
 				iterator.remove();
 				differentBookNumber--;
 				flag = true;
+				break;
 			}
-			return flag;
+			
 		}
-
+		return flag;
 	}
 }
