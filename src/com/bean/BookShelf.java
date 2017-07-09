@@ -11,10 +11,6 @@ public class BookShelf {
 	private LinkedList<Book> shelf = new LinkedList<Book>();
 	private int differentBookNumber = 0;
 
-	public int getDifferentBookNumber() {
-		return differentBookNumber;
-	}
-
 	/*
 	 * 通过调用getBook()
 	 */
@@ -42,17 +38,6 @@ public class BookShelf {
 		return successNum;
 	}
 
-	public boolean removeBook(long bookId) {
-		boolean flag = false;
-
-		Book book = getBook(bookId);
-		if (book != null) {
-			shelf.remove(book);
-			flag = true;
-		}
-		return flag;
-	}
-
 	private Book getBook(long bookId) {
 
 		boolean flag = false;
@@ -70,5 +55,80 @@ public class BookShelf {
 			return book;
 		return null;
 
+	}
+
+	public int getDifferentBookNumber() {
+		return differentBookNumber;
+	}
+
+	public boolean modifyBook(long bookId, double newBookPrice) {
+		boolean flag = false;
+		Book book = getBook(bookId);
+		if (book != null) {// 验证原书存在不存在
+
+			book.setBookPrice(newBookPrice);
+
+			flag = true;
+		}
+		return flag;
+	}
+
+	public boolean modifyBook(long bookId, double newBookPrice,
+			int newBookAmount) {
+		boolean flag = false;
+		Book book = getBook(bookId);
+		if (book != null) {// 验证原书存在不存在
+			book.setBookAmount(newBookAmount);
+			book.setBookPrice(newBookPrice);
+
+			flag = true;
+		}
+		return flag;
+	}
+
+	public boolean modifyBook(long bookId, double newBookPrice,
+			int newBookAmount, String newBookBrief) {
+		boolean flag = false;
+		Book book = getBook(bookId);
+		if (book != null) {// 验证原书存在不存在
+			book.setBookAmount(newBookAmount);
+			book.setBookPrice(newBookPrice);
+			book.setBookBrief(newBookBrief);
+			flag = true;
+		}
+		return flag;
+	}
+
+	public boolean modifyBook(long bookId, int newBookAmount) {
+		boolean flag = false;
+		Book book = getBook(bookId);
+		if (book != null) {// 验证原书存在不存在
+			book.setBookAmount(newBookAmount);
+
+			flag = true;
+		}
+		return flag;
+	}
+
+	public boolean modifyBook(long bookId, String newBookBrief) {
+		boolean flag = false;
+		Book book = getBook(bookId);
+		if (book != null) {// 验证原书存在不存在
+
+			book.setBookBrief(newBookBrief);
+			flag = true;
+		}
+		return flag;
+	}
+
+	public boolean removeBook(long bookId) {
+		boolean flag = false;
+
+		Book book = getBook(bookId);
+		if (book != null) {
+			shelf.remove(book);
+			flag = true;
+		}
+		return flag;
 	}
 }
