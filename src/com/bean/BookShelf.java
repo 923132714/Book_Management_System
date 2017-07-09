@@ -65,4 +65,14 @@ public class BookShelf {
 			return book;
 		return null;
 	}
+	public String toString() {
+		StringBuilder stringBuilder = new StringBuilder();
+		for (Iterator iterator = shelf.iterator(); iterator.hasNext();) {
+			Book book = (Book) iterator.next();
+			
+			stringBuilder.append(book);
+			stringBuilder.append("\n");
+		}
+		return stringBuilder.toString();
+	}
 }

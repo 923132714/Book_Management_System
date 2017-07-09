@@ -15,7 +15,10 @@ public class Test {
 		System.out.println(shelf.addBook(book2));
 		System.out.println(shelf.addBook(book3));
 		System.out.println(shelf.addBook(book4));
+		System.out.println(shelf.toString());	
 		System.out.println(shelf.removeBook(0l));
+		System.out.println("=============");
+		System.out.println(shelf.toString());
 	}
 
 }

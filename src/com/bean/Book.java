@@ -78,5 +78,11 @@ public class Book implements Serializable {
 		}
 		return false;
 	}
+	public String toString() {
 
+		return String.format("%10d", bookId) + "|" +String.format("%-20s",  bookName) + "\t|"
+				+ String.format("%6.2f", bookPrice) + "|"
+				+ String.format("%6d", bookAmount) + "|"
+				+ String.format("%-50s", bookBrief);
+	}
 }
