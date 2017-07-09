@@ -50,16 +50,19 @@ public class BookShelf {
 	}
 
 	private Book getBook(long bookId) {
-
+		boolean flag = false;
 		Iterator<Book> iterator = shelf.iterator();
 		Book book = null;
 		while (iterator.hasNext()) {
-			if (iterator.next().getBookId() == bookId) {
-				book = (Book) iterator;
+
+			if ((book = iterator.next()).getBookId() == bookId) {
+				flag = true;
 				break;
 			}
-		}
-		return book;
 
+		}
+		if (flag)
+			return book;
+		return null;
 	}
 }
