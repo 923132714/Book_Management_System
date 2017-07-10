@@ -1,7 +1,11 @@
 package com.bean;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedList;
+
+import com.util.ComparatorBook;
 
 /**
  * @author logic
@@ -37,10 +41,11 @@ public class BookShelf {
 		}
 		return successNum;
 	}
+
 	/*
 	 * 通过图书编号获取Book对象
 	 */
-	private Book getBook(long bookId) {
+	public Book getBook(long bookId) {
 
 		boolean flag = false;
 		Iterator<Book> iterator = shelf.iterator();
@@ -58,10 +63,11 @@ public class BookShelf {
 		return null;
 
 	}
+
 	/*
 	 * 通过图书名称获取Book对象
 	 */
-	private Book getBook(String bookName) {
+	public Book getBook(String bookName) {
 
 		boolean flag = false;
 		Iterator<Book> iterator = shelf.iterator();
@@ -79,12 +85,14 @@ public class BookShelf {
 		return null;
 
 	}
+
 	/*
 	 * 获取书架上的book个数
 	 */
 	public int getDifferentBookNumber() {
 		return differentBookNumber;
 	}
+
 	public boolean modifyBook(long bookId, double newBookPrice,
 			int newBookAmount) {
 		boolean flag = false;
@@ -97,6 +105,7 @@ public class BookShelf {
 		}
 		return flag;
 	}
+
 	public boolean modifyBook(long bookId, double newBookPrice,
 			int newBookAmount, String newBookBrief) {
 		boolean flag = false;
@@ -109,6 +118,7 @@ public class BookShelf {
 		}
 		return flag;
 	}
+
 	public boolean modifyBook(String bookName, double newBookPrice,
 			int newBookAmount) {
 		boolean flag = false;
@@ -121,6 +131,7 @@ public class BookShelf {
 		}
 		return flag;
 	}
+
 	public boolean modifyBook(String bookName, double newBookPrice,
 			int newBookAmount, String newBookBrief) {
 		boolean flag = false;
@@ -133,6 +144,7 @@ public class BookShelf {
 		}
 		return flag;
 	}
+
 	public boolean modifyBookAmount(long bookId, int newBookAmount) {
 		boolean flag = false;
 		Book book = getBook(bookId);
@@ -143,6 +155,7 @@ public class BookShelf {
 		}
 		return flag;
 	}
+
 	public boolean modifyBookAmount(String bookName, int newBookAmount) {
 		boolean flag = false;
 		Book book = getBook(bookName);
@@ -153,6 +166,7 @@ public class BookShelf {
 		}
 		return flag;
 	}
+
 	public boolean modifyBookBookBrief(long bookId, String newBookBrief) {
 		boolean flag = false;
 		Book book = getBook(bookId);
@@ -163,6 +177,7 @@ public class BookShelf {
 		}
 		return flag;
 	}
+
 	public boolean modifyBookBookBrief(String bookName, String newBookBrief) {
 		boolean flag = false;
 		Book book = getBook(bookName);
@@ -173,6 +188,7 @@ public class BookShelf {
 		}
 		return flag;
 	}
+
 	public boolean modifyBookPrice(long bookId, double newBookPrice) {
 		boolean flag = false;
 		Book book = getBook(bookId);
@@ -184,6 +200,7 @@ public class BookShelf {
 		}
 		return flag;
 	}
+
 	/*
 	 * 修改book信息
 	 */
@@ -198,6 +215,7 @@ public class BookShelf {
 		}
 		return flag;
 	}
+
 	/*
 	 * 删除shelf中图书编号为bookId的book
 	 */
@@ -211,7 +229,7 @@ public class BookShelf {
 		}
 		return flag;
 	}
-	
+
 	/*
 	 * 删除shelf中图书名称为bookName的book
 	 */
@@ -224,5 +242,14 @@ public class BookShelf {
 			flag = true;
 		}
 		return flag;
+	}
+
+	/*
+	 * 排序
+	 */
+	public void sortByBook() {
+		Comparator<Book> cmp = new ComparatorBook();
+
+		Collections.sort(shelf, cmp);
 	}
 }

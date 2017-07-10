@@ -1,21 +1,20 @@
 /**
-	 * 可序列化图书 bean类
-	 * 包含图书信息：
-	 * 图书编号 @param bookId
-	 * 图书名称 @param  bookName
-	 * 图书价格 @param bookPrice
-	 * 图书数量 @param bookAmount
-	 * 图书价格 @param bookBrief
-	 * 
-	 * @author logic
-	 */
+ * 可序列化图书 bean类
+ * 包含图书信息：
+ * 图书编号 @param bookId
+ * 图书名称 @param  bookName
+ * 图书价格 @param bookPrice
+ * 图书数量 @param bookAmount
+ * 图书价格 @param bookBrief
+ * 
+ * @author logic
+ */
 package com.bean;
 
 import java.io.Serializable;
 
 public class Book implements Serializable {
 
-	
 	private static final long serialVersionUID = 7679161791075683794L;
 
 	public Book(long bookId, String bookName, Double bookPrice, int bookAmount,
