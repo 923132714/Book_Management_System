@@ -26,6 +26,8 @@ public class Test {
 		System.out.println("=============");
 		System.out.println(shelf.toString());
 		shelf.sortByBook();
+		shelf.removeBook("so");
+		shelf.modifyBookPrice(1, 439.4);
 		System.out.println("=============");
 		System.out.println(shelf.toString());
 	}
