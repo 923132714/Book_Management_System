@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-import com.util.ComparatorBook;
+import com.util.ComparatorBookById;
 
 /**
  * @author logic
@@ -248,7 +248,7 @@ public class BookShelf {
 	 * 排序
 	 */
 	public void sortByBook() {
-		Comparator<Book> cmp = new ComparatorBook();
+		Comparator<Book> cmp = new ComparatorBookById();
 
 		Collections.sort(shelf, cmp);
 	}
