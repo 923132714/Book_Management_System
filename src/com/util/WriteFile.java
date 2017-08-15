@@ -14,7 +14,15 @@ import javax.xml.ws.handler.MessageContext;
 
 public class WriteFile<T> {
 
-
+	/**
+	 * 向指定文件
+	 * @param filePath
+	 * 写入链表
+	 * @param linkedList
+	 * 
+	 * 文件不存在报错
+	 * @throws NoSuchFieldException
+	 */
 	public WriteFile(String filePath, LinkedList<T> linkedList)throws NoSuchFieldException {
 		File file = new File(filePath);
 		try {
@@ -33,6 +41,18 @@ public class WriteFile<T> {
 			e.printStackTrace();
 		}
 	}
+
+/**
+	 * 向指定文件
+	 * @param filePath
+	 * 写入字符串
+	 * @param message
+	 * 是否续写
+	 * @param flag 
+	 * 
+	 * 文件不存在报错
+	 * @throws NoSuchFieldException
+	 */
 	public WriteFile(String filePath, String message ,boolean flag)throws NoSuchFieldException {
 
 		File file = new File(filePath);

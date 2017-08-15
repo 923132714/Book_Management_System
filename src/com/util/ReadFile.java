@@ -10,10 +10,15 @@ import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.util.LinkedList;
 
-public class Readfile<T> {
+public class ReadFile<T> {
 	private LinkedList<T> linkedList;
 	
-		
+		/**
+		 * 从指定文件
+		 * @param filePath
+		 * 读取链表并返回
+		 * @return
+		 */
 	public LinkedList<T> readLinkedList(String filePath ) {
 		File file = new File(filePath);
 		if (!file.exists())
@@ -32,7 +37,13 @@ public class Readfile<T> {
 
 		return linkedList;
 	}
-
+/**
+ * 从指定文件
+ * @param filePath
+ * 读取字符串并返回
+ * @return
+ * 
+ */
 public String  readfile(String filePath ) {
 	File file = new File(filePath);
 	if (!file.exists())

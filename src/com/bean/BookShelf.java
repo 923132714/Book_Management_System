@@ -17,8 +17,11 @@ public class BookShelf {
 	private LinkedList<Book> shelf = new LinkedList<Book>();
 	private int differentBookNumber = 0;
 
-	/*
-	 * 通过调用getBook()
+	/**
+	 * 向shelf中添加book
+	 * @param book
+	 * 返回是否成功
+	 * @return
 	 */
 	public boolean addBook(Book book) {
 		boolean flag = false;
@@ -30,22 +33,35 @@ public class BookShelf {
 		return flag;
 	}
 
-	/*
-	 * 通过调用addBook(Book book)实现
+	/**
+	 * 向shelf中添加books
+	 * @param books
+	 * 中的全部书籍
+	 * 返回添加失败的数量
+	 * @return
+	 * 
+	 * 重复调用addBook(Book)
 	 */
-	public int addBook(Book[] books) {
-		int successNum = 0;
-		for (Book book : books) {
-			if (addBook(book)) {
-				successNum++;
+	public int addBook(LinkedList<Book> books) {
+		Iterator<Book> iterator =books.iterator();
+		int falseNumber=0;
+		while (iterator.hasNext()) {
+			if(addBook(iterator.next()))
+				differentBookNumber++;
+			else {
+				falseNumber++;
 			}
-
+			}
+		return falseNumber;
 		}
-		return successNum;
-	}
+		
+	
 
-	/*
-	 * 通过图书编号获取Book对象
+	/**
+	 * 通过bookId
+	 * @param bookId
+	 * 找到并返回shelf中相应的的book对象
+	 * @return
 	 */
 	public Book getBook(long bookId) {
 
@@ -66,8 +82,11 @@ public class BookShelf {
 
 	}
 
-	/*
-	 * 通过图书名称获取Book对象
+	/**
+	 * 通过bookName
+	 * @param bookName
+	 * 找到并返回shelf中相应的的book对象
+	 * @return
 	 */
 	public Book getBook(String bookName) {
 
@@ -93,7 +112,16 @@ public class BookShelf {
 	public int getDifferentBookNumber() {
 		return differentBookNumber;
 	}
-
+	/**
+	 * 通过bookId
+	 * @param bookId
+	 * 将shelf中指定book的BookPrice修改为newBookPrice
+	 * @param newBookPrice
+	 * BookAmount修改为newBookAmount
+	 * @param newBookAmount
+	 * 并返回是否成功
+	 * @return
+	 */
 	public boolean modifyBook(long bookId, double newBookPrice, int newBookAmount) {
 		boolean flag = false;
 		Book book = getBook(bookId);
@@ -105,7 +133,18 @@ public class BookShelf {
 		}
 		return flag;
 	}
-
+	/**
+	 * 通过bookId
+	 * @param bookId
+	 * 将shelf中指定book的BookPrice修改为newBookPrice
+	 * @param newBookPrice
+	 * BookAmount修改为newBookAmount
+	 * @param newBookAmount
+	 * BookBrief修改为newBookBrief
+	 * @param newBookBrief
+	 * 并返回是否成功
+	 * @return
+	 */
 	public boolean modifyBook(long bookId, double newBookPrice, int newBookAmount, String newBookBrief) {
 		boolean flag = false;
 		Book book = getBook(bookId);
@@ -117,7 +156,16 @@ public class BookShelf {
 		}
 		return flag;
 	}
-
+	/**
+	 * 通过bookName
+	 * @param bookName
+	 * 将shelf中指定book的BookPrice修改为newBookPrice
+	 * @param newBookPrice
+	 * BookAmount修改为newBookAmount
+	 * @param newBookAmount
+	 * 并返回是否成功
+	 * @return
+	 */
 	public boolean modifyBook(String bookName, double newBookPrice, int newBookAmount) {
 		boolean flag = false;
 		Book book = getBook(bookName);
@@ -129,7 +177,18 @@ public class BookShelf {
 		}
 		return flag;
 	}
-
+	/**
+	 * 通过bookName
+	 * @param bookName
+	 * 将shelf中指定book的BookPrice修改为newBookPrice
+	 * @param newBookPrice
+	 * BookAmount修改为newBookAmount
+	 * @param newBookAmount
+	 * BookBrief修改为newBookBrief
+	 * @param newBookBrief
+	 * 并返回是否成功
+	 * @return
+	 */
 	public boolean modifyBook(String bookName, double newBookPrice, int newBookAmount, String newBookBrief) {
 		boolean flag = false;
 		Book book = getBook(bookName);
@@ -141,7 +200,14 @@ public class BookShelf {
 		}
 		return flag;
 	}
-
+	/**
+	 * 通过bookId
+	 * @param bookId
+	 * 将shelf中指定book的BookAmount修改为newBookAmount
+	 * @param newBookAmount
+	 * 并返回是否成功
+	 * @return
+	 */
 	public boolean modifyBookAmount(long bookId, int newBookAmount) {
 		boolean flag = false;
 		Book book = getBook(bookId);
@@ -152,7 +218,14 @@ public class BookShelf {
 		}
 		return flag;
 	}
-
+	/**
+	 * 通过bookName
+	 * @param bookName
+	 * 将shelf中指定book的BookAmount修改为newBookAmount
+	 * @param newBookAmount
+	 * 并返回是否成功
+	 * @return
+	 */
 	public boolean modifyBookAmount(String bookName, int newBookAmount) {
 		boolean flag = false;
 		Book book = getBook(bookName);
@@ -163,7 +236,14 @@ public class BookShelf {
 		}
 		return flag;
 	}
-
+	/**
+	 * 通过bookId
+	 * @param bookId
+	 * 将shelf中指定book的BookBrief修改为newBookBrief
+	 * @param newBookBrief
+	 * 并返回是否成功
+	 * @return
+	 */
 	public boolean modifyBookBookBrief(long bookId, String newBookBrief) {
 		boolean flag = false;
 		Book book = getBook(bookId);
@@ -174,7 +254,14 @@ public class BookShelf {
 		}
 		return flag;
 	}
-
+	/**
+	 * 通过bookName
+	 * @param bookName
+	 * 将shelf中指定book的BookBrief修改为newBookBrief
+	 * @param newBookBrief
+	 * 并返回是否成功
+	 * @return
+	 */
 	public boolean modifyBookBookBrief(String bookName, String newBookBrief) {
 		boolean flag = false;
 		Book book = getBook(bookName);
@@ -185,7 +272,14 @@ public class BookShelf {
 		}
 		return flag;
 	}
-
+	/**
+	 * 通过bookId
+	 * @param bookId
+	 * 将shelf中指定book的BookPrice修改为newBookPrice
+	 * @param newBookPrice
+	 * 并返回是否成功
+	 * @return
+	 */
 	public boolean modifyBookPrice(long bookId, double newBookPrice) {
 		boolean flag = false;
 		Book book = getBook(bookId);
@@ -198,8 +292,13 @@ public class BookShelf {
 		return flag;
 	}
 
-	/*
-	 * 修改book信息
+	/**
+	 * 通过bookName
+	 * @param bookName
+	 * 将shelf中指定book的BookPrice修改为newBookPrice
+	 * @param newBookPrice
+	 * 并返回是否成功
+	 * @return
 	 */
 	public boolean modifyBookPrice(String bookName, double newBookPrice) {
 		boolean flag = false;
@@ -213,8 +312,12 @@ public class BookShelf {
 		return flag;
 	}
 
-	/*
-	 * 删除shelf中图书编号为bookId的book
+	/**
+	 * 通过bookId
+	 * @param bookId
+	 * 从shelf中删除Book
+	 * 并返回是否成功
+	 * @return
 	 */
 	public boolean removeBook(long bookId) {
 		boolean flag = false;
@@ -227,8 +330,13 @@ public class BookShelf {
 		return flag;
 	}
 
-	/*
-	 * 删除shelf中图书名称为bookName的book
+
+	/**
+	 * 通过bookName
+	 * @param bookName
+	 * 从shelf中删除Book
+	 * 并返回是否成功
+	 * @return
 	 */
 	public boolean removeBook(String bookName) {
 		boolean flag = false;
@@ -255,7 +363,7 @@ public class BookShelf {
 
 		Collections.sort(shelf, cmp);
 	}
-
+	
 	public void sortByBookAmount() {
 		Comparator<Book> cmp = new ComparatorBookByAmount();
 
