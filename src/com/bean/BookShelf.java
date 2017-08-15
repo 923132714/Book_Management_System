@@ -8,6 +8,8 @@ import java.util.LinkedList;
 import com.util.ComparatorBookByAmount;
 import com.util.ComparatorBookById;
 import com.util.ComparatorBookByName;
+import com.util.ReadFile;
+import com.util.WriteFile;
 
 /**
  * @author logic
@@ -368,5 +370,26 @@ public class BookShelf {
 		Comparator<Book> cmp = new ComparatorBookByAmount();
 
 		Collections.sort(shelf, cmp);
+	}
+	public boolean writeShelf(String path){
+		boolean flag =true;
+		try {
+			new WriteFile<Book>(path,shelf);
+		} catch (NoSuchFieldException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+			 flag =false;
+		}
+		
+		return flag;
+	}
+	public boolean readShelf(String path){
+		boolean flag =true;
+		
+			ReadFile<Book> reader = new ReadFile<Book>();
+			reader.readLinkedList(path);
+		
+		
+		return flag;
 	}
 }
