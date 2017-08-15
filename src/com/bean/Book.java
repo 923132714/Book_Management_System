@@ -16,7 +16,14 @@ import java.io.Serializable;
 public class Book implements Serializable {
 
 	private static final long serialVersionUID = 7679161791075683794L;
-
+/**
+ * 构造方法
+ * @param bookId
+ * @param bookName
+ * @param bookPrice
+ * @param bookAmount
+ * @param bookBrief
+ */
 	public Book(long bookId, String bookName, Double bookPrice, int bookAmount,
 			String bookBrief) {
 
