@@ -399,7 +399,7 @@ public class BookShelf {
 		boolean flag =true;
 		
 			ReadFile<Book> reader = new ReadFile<Book>();
-			reader.readLinkedList(path);
+			shelf=reader.readLinkedList(path);
 		
 		
 		return flag;
