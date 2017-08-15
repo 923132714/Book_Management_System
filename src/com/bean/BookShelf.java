@@ -5,7 +5,9 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-import com.util.ComparatorBook;
+import com.util.ComparatorBookByAmount;
+import com.util.ComparatorBookById;
+import com.util.ComparatorBookByName;
 
 /**
  * @author logic
@@ -78,7 +80,6 @@ public class BookShelf {
 				flag = true;
 				break;
 			}
-
 		}
 		if (flag)
 			return book;
@@ -93,8 +94,7 @@ public class BookShelf {
 		return differentBookNumber;
 	}
 
-	public boolean modifyBook(long bookId, double newBookPrice,
-			int newBookAmount) {
+	public boolean modifyBook(long bookId, double newBookPrice, int newBookAmount) {
 		boolean flag = false;
 		Book book = getBook(bookId);
 		if (book != null) {// 验证原书存在不存在
@@ -106,8 +106,7 @@ public class BookShelf {
 		return flag;
 	}
 
-	public boolean modifyBook(long bookId, double newBookPrice,
-			int newBookAmount, String newBookBrief) {
+	public boolean modifyBook(long bookId, double newBookPrice, int newBookAmount, String newBookBrief) {
 		boolean flag = false;
 		Book book = getBook(bookId);
 		if (book != null) {// 验证原书存在不存在
@@ -119,8 +118,7 @@ public class BookShelf {
 		return flag;
 	}
 
-	public boolean modifyBook(String bookName, double newBookPrice,
-			int newBookAmount) {
+	public boolean modifyBook(String bookName, double newBookPrice, int newBookAmount) {
 		boolean flag = false;
 		Book book = getBook(bookName);
 		if (book != null) {// 验证原书存在不存在
@@ -132,8 +130,7 @@ public class BookShelf {
 		return flag;
 	}
 
-	public boolean modifyBook(String bookName, double newBookPrice,
-			int newBookAmount, String newBookBrief) {
+	public boolean modifyBook(String bookName, double newBookPrice, int newBookAmount, String newBookBrief) {
 		boolean flag = false;
 		Book book = getBook(bookName);
 		if (book != null) {// 验证原书存在不存在
@@ -246,8 +243,20 @@ public class BookShelf {
 	/*
 	 * 排序
 	 */
-	public void sortByBook() {
-		Comparator<Book> cmp = new ComparatorBook();
+	public void sortByBookId() {
+		Comparator<Book> cmp = new ComparatorBookById();
+
+		Collections.sort(shelf, cmp);
+	}
+
+	public void sortByBookName() {
+		Comparator<Book> cmp = new ComparatorBookByName();
+
+		Collections.sort(shelf, cmp);
+	}
+
+	public void sortByBookAmount() {
+		Comparator<Book> cmp = new ComparatorBookByAmount();
 
 		Collections.sort(shelf, cmp);
 
